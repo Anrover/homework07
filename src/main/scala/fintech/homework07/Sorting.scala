@@ -41,10 +41,6 @@ object Sorting {
     }
 
     mergeSortRec(0, collection.length)
-//    for(i <- Iterator.iterate(1)(_ * 2).takeWhile(_ < collection.length);
-//        j <- collection.indices by 2 * i)
-//        merge(j, j + i, math.min(j + 2 * i, collection.length))
-//    collection
   }
 
   def quickSort[T](collection: MutSeq[T])(implicit ord: Ordering[T]): Unit = {
