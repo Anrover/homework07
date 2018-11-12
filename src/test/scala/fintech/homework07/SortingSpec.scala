@@ -3,23 +3,16 @@ import java.time.LocalDate
 
 import org.scalatest.{FlatSpec, Matchers}
 import scala.collection.mutable.ArrayBuffer
-import scala.collection.mutable
 
 class SortingSpec extends FlatSpec with Matchers {
   case class Person(name: String, birthDate: LocalDate)
 
   "QuickSort" should "correct sort mutable sequences with Int" in {
     val arrayInteger = ArrayBuffer(1, 7, 5, 5, 12, 2, 10)
-    val seqInteger = mutable.Seq(1, 7, 5, 5, 12, 2, 10)
-    val sortedSeq = mutable.Seq(1, 2, 3)
     val emptyArray = ArrayBuffer.empty[Int]
 
     Sorting.quickSort(arrayInteger)
     arrayInteger should be (arrayInteger.sorted)
-    Sorting.quickSort(seqInteger)
-    seqInteger should be (seqInteger.sorted)
-    Sorting.quickSort(sortedSeq)
-    sortedSeq should be (sortedSeq.sorted)
 
     Sorting.quickSort(emptyArray)
     emptyArray should be (ArrayBuffer.empty)
@@ -53,15 +46,8 @@ class SortingSpec extends FlatSpec with Matchers {
 
   "MergeSort" should "correct sort mutable sequences with Int" in {
     val arrayInteger = ArrayBuffer(1, 7, 5, 5, 12, 2, 10)
-    val seqInteger = mutable.Seq(1, 7, 5, 5, 12, 2, 10)
-    val sortedSeq = mutable.Seq(1, 2, 3)
-
     Sorting.mergeSort(arrayInteger)
     arrayInteger should be (arrayInteger.sorted)
-    Sorting.mergeSort(seqInteger)
-    seqInteger should be (seqInteger.sorted)
-    Sorting.mergeSort(sortedSeq)
-    sortedSeq should be (sortedSeq.sorted)
   }
   it should "correct sort mutable sequences with String or Char" in {
     val arrayString = ArrayBuffer("def", "abb", "abcd", "a", "ab")

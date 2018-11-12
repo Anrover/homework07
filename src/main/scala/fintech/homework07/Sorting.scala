@@ -8,9 +8,9 @@ import scala.collection.mutable
   */
 
 object Sorting {
-  type MutSeq[T] = mutable.Seq[T]
+  type IndexSeq[T] = mutable.IndexedSeq[T]
   
-  def mergeSort[T](collection: MutSeq[T])(implicit ord: Ordering[T]): Unit = {
+  def mergeSort[T](collection: IndexSeq[T])(implicit ord: Ordering[T]): Unit = {
     import ord._
 
     def merge(left: Int, mid: Int, right: Int) {
@@ -43,7 +43,7 @@ object Sorting {
     mergeSortRec(0, collection.length)
   }
 
-  def quickSort[T](collection: MutSeq[T])(implicit ord: Ordering[T]): Unit = {
+  def quickSort[T](collection: IndexSeq[T])(implicit ord: Ordering[T]): Unit = {
     import ord._
 
     def quickSortRec(lowerBound: Int, upperBound: Int): Unit = {
